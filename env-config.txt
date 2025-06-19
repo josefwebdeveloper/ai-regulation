@@ -1,0 +1,43 @@
+# AI Regulation Association - Environment Variables Configuration
+# Copy these variables to your Vercel project settings
+
+# Email Provider Configuration
+EMAIL_PROVIDER=gmail
+
+# Gmail Authentication
+EMAIL_USER=ai.regulation.association@gmail.com
+EMAIL_APP_PASSWORD=eeel cuhi hblo qxpm
+
+# Email Addresses
+EMAIL_FROM="AI Regulation Association <ai.regulation.association@gmail.com>"
+EMAIL_TO=ai.regulation.association@gmail.com
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://ai-regulation.vercel.app
+
+# Optional: Additional email configurations
+# EMAIL_REPLY_TO=ai.regulation.association@gmail.com
+# EMAIL_BCC=admin@ai-regulation.vercel.app
+
+# =============================================================================
+# VERCEL DEPLOYMENT INSTRUCTIONS:
+# =============================================================================
+# 1. Go to: https://vercel.com/dashboard
+# 2. Click on your "ai-regulation" project
+# 3. Go to Settings → Environment Variables
+# 4. Add each variable above (one by one):
+#    - Name: EMAIL_PROVIDER, Value: gmail
+#    - Name: EMAIL_USER, Value: ai.regulation.association@gmail.com
+#    - Name: EMAIL_APP_PASSWORD, Value: eeel cuhi hblo qxpm
+#    - Name: EMAIL_FROM, Value: "AI Regulation Association <ai.regulation.association@gmail.com>"
+#    - Name: EMAIL_TO, Value: ai.regulation.association@gmail.com
+#    - Name: NEXT_PUBLIC_SITE_URL, Value: https://ai-regulation.vercel.app
+# 5. Redeploy your site
+# 6. Test the contact form at: https://ai-regulation.vercel.app/contact
+# =============================================================================
+
+# Security Notes:
+# - Never commit this file to version control
+# - The app password is specific to this application
+# - You can revoke it anytime from Google Account settings
+# - Each app should have its own unique app password 
