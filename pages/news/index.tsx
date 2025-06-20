@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
 import { NewsArticle } from '../../types'
 import { getAllNewsArticles } from '../../lib/api'
@@ -16,7 +15,7 @@ export default function NewsPage({ articles }: NewsPageProps) {
   const regularArticles = articles.filter(article => !article.featured)
 
   return (
-    <Layout>
+    <>
       <SEO
         title="News & Insights"
         description="Latest news, insights, and updates on AI regulation, policy developments, and industry trends from the AI Regulation Association."
@@ -92,7 +91,7 @@ export default function NewsPage({ articles }: NewsPageProps) {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
 import { Event } from '../../types'
 import { getAllEvents } from '../../lib/api'
@@ -16,7 +15,7 @@ export default function EventsPage({ events }: EventsPageProps) {
   const pastEvents = events.filter(event => new Date(event.startDate) <= new Date())
 
   return (
-    <Layout>
+    <>
       <SEO
         title="Events"
         description="Join our upcoming events, workshops, and conferences on AI governance, policy development, and ethical AI practices."
@@ -84,7 +83,7 @@ export default function EventsPage({ events }: EventsPageProps) {
           )}
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

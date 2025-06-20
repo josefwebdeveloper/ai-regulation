@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
 import { NewsArticle } from '../../types'
 import { getAllNewsArticles, getNewsArticleBySlug } from '../../lib/api'
@@ -25,7 +24,7 @@ export default function NewsArticlePage({ article }: NewsArticlePageProps) {
   }
 
   return (
-    <Layout>
+    <>
       <SEO
         title={article.seoTitle || article.title}
         description={article.seoDescription || article.excerpt}
@@ -213,7 +212,7 @@ export default function NewsArticlePage({ article }: NewsArticlePageProps) {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

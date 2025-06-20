@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
 import { Event } from '../../types'
 import { getAllEvents, getEventById } from '../../lib/api'
@@ -35,7 +34,7 @@ export default function EventPage({ event }: EventPageProps) {
   }
 
   return (
-    <Layout>
+    <>
       <SEO
         title={event.seoTitle || event.title}
         description={event.seoDescription || event.description}
@@ -292,7 +291,7 @@ export default function EventPage({ event }: EventPageProps) {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 
