@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { EmailCollectionService } from '../../lib/email-collection'
+import { EmailServices } from '../../lib/email-services'
 
 interface NewsletterData {
   email: string
@@ -52,13 +53,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log('User Agent:', subscriptionData.userAgent)
     console.log('=====================================')
 
-    // В реальном приложении здесь нужно:
-    // 1. Интегрировать с email сервисом (Mailchimp, ConvertKit, etc.)
-    // 2. Отправить приветственное письмо
-    
-    // Пример интеграции:
-    // await EmailServiceIntegration.addToMailchimp(subscriptionData.email, 'LIST_ID', 'API_KEY')
-    // await EmailServiceIntegration.sendWelcomeEmail(subscriptionData.email)
+    // Интеграция с email сервисами (если настроены)
+    try {
+      const emailResult = await EmailServices.addToAnyService(subscriptionData.email, {
+        firstName: '', // можно добавить поле имени в форму
+        source: subscriptionData.source
+      })
+      
+      if (emailResult.success) {
+        console.log(`✅ Email добавлен в ${emailResult.service}`)
+      } else {
+        console.log('⚠️ Email сервисы не настроены, только локальное сохранение')
+      }
+    } catch (error) {
+      console.log('⚠️ Ошибка интеграции с email сервисами:', error)
+    }
 
     return res.status(200).json({ 
       message: 'Successfully subscribed to newsletter',
