@@ -34,6 +34,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="VZJpRjOLMglBkkQr9XmAyRml__TBzeZOey0Fr3dcyvU" />
+        
         {/* Favicon */}
         <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
