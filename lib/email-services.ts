@@ -19,7 +19,8 @@ export class EmailServices {
     }
 
     try {
-      const response = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
+      // Пробуем сначала добавить через форму
+      let response = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -31,6 +32,23 @@ export class EmailServices {
           tags: options?.tags || []
         })
       })
+
+      // Если форма не работает, пробуем общий subscribers API
+      if (!response.ok) {
+        console.log('ConvertKit: Форма не работает, пробуем subscribers API')
+        response = await fetch(`https://api.convertkit.com/v3/subscribers`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            api_key: apiKey,
+            email: email,
+            first_name: options?.firstName || '',
+            tags: options?.tags || []
+          })
+        })
+      }
 
       if (response.ok) {
         const data = await response.json()
