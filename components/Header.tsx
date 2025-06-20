@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 // Simple Heroicons replacement
 const Bars3Icon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
@@ -37,10 +38,15 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">AI Regulation Association</span>
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">AI</span>
-              </div>
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/logo.png"
+                alt="AI Regulation Association"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+                priority
+              />
               <span className="text-xl font-bold text-secondary-900">
                 AI Regulation Association
               </span>
@@ -94,10 +100,14 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">AI Regulation Association</span>
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">AI</span>
-                  </div>
+                <div className="flex items-center space-x-3">
+                  <Image
+                    src="/logo.png"
+                    alt="AI Regulation Association"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
+                  />
                   <span className="text-lg font-bold text-secondary-900">
                     AI Regulation
                   </span>

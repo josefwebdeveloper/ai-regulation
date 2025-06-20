@@ -22,9 +22,9 @@ export const SITE_CONFIG = {
     'responsible AI',
     'AI standards'
   ],
-  ogImage: '/og-image.jpg',
+  ogImage: '/logo.png',
   language: 'en-US',
-  themeColor: '#3b82f6'
+  themeColor: '#1e3a8a'
 }
 
 // Generate structured data for Organization
