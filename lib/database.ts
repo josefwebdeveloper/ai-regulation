@@ -175,8 +175,8 @@ export class EmailDatabase {
         total: parseInt(totalResult.rows[0].count),
         active: parseInt(activeResult.rows[0].count),
         unsubscribed: parseInt(unsubscribedResult.rows[0].count),
-        bySource: sourceStats.rows.reduce((acc: Record<string, number>, row: any) => {
-          acc[row.source] = parseInt(row.count)
+        bySource: sourceStats.rows.reduce((acc: Record<string, number>, row) => {
+          acc[row.source as string] = parseInt(row.count as string)
           return acc
         }, {} as Record<string, number>),
         dailyStats: dailyStats.rows
